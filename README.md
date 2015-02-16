@@ -36,9 +36,10 @@ Format of the JSON Data for the `Devices` collection in Kinvey
 
 ###Screenshots
 ------------
-Login Screen
-![Login Screen](https://raw.githubusercontent.com/aaronksaunders/IonicKinveyDatastore/master/screenshots/Login.png)
+
+#####Login Screen
+![Login Screen](https://raw.githubusercontent.com/aaronksaunders/IonicKinveyDatastore/master/screenshots/LoginScreen.png)
 
 
-List View w/Results and User Object Displayed
-![Manage Data With HTTP Verbs](https://raw.githubusercontent.com/aaronksaunders/IonicKinveyDatastore/master/screenshots/List.png)
+#####List View w/Results and User Object Displayed
+![Manage Data With HTTP Verbs](https://raw.githubusercontent.com/aaronksaunders/IonicKinveyDatastore/master/screenshots/ListScreen.png)
