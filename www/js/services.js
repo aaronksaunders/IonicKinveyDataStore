@@ -3,7 +3,9 @@ angular.module('appServices', ['kinvey'])
     .service('KinveyService', ['$kinvey', '$q', 'KINVEY',
         function ($kinvey, $q, KINVEY) {
 
-            //var KINVEY_DEBUG = true;
+            KINVEY_DEBUG = true;
+            var kinveyInitialized = false;
+
 
             return {
                 getDevicesData: function () {
@@ -11,7 +13,24 @@ angular.module('appServices', ['kinvey'])
                     return promise;
                 },
                 init: function () {
-                    return $kinvey.init(KINVEY.APPINFO);
+
+                    // if initialized, then return the activeUser
+                    if (kinveyInitialized) {
+                        return $kinvey.getActiveUser();
+                    }
+                    var promise = $kinvey.init(KINVEY.APPINFO);
+
+                    promise.then(function (activeUser) {
+                        kinveyInitialized = true;
+                        return (activeUser);
+                    }, function (error) {
+                        return {
+                            error: "noUser",
+                            debug: error.debug
+                        }
+                    });
+
+                    return promise;
                 },
                 currentUser: function (_kinveyInitUser) {
 
