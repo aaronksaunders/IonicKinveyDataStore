@@ -1,0 +1,26 @@
+<ion-view title="List Page" hide-back-button="true">
+    <ion-content padding="true" class="has-header">
+        <div class="list card">
+            <div class="item item-divider">User Information</div>
+            <div class="item item-body">{{response.username}}</div>
+        </div>
+        <div class="spacer" style="width: 300px; height: 25.9895858764648px;"></div>
+        <ion-list ng-repeat="item in items" ng-if="items.length">
+            <ion-item>
+                <div class="row">
+                    <div class="col col-20">
+                        {{$index}}
+                    </div>
+                    <div class="col col-30">
+                        {{item.first_col}}
+                    </div>
+                    <div class="col col-30">
+                        {{item.second_col}}
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+        <div class="spacer" style="width: 300px; height: 35.0000076293945px;"></div>
+        <a ng-click="doLogout()" class="button button-stable button-block">Logout</a>
+    </ion-content>
+</ion-view>
