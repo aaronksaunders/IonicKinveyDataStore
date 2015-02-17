@@ -5,7 +5,7 @@ angular.module('appControllers', [])
  * be used in an application
  */
     .controller('LoginController', [
-        '$state', '$scope', 'KinveyService','kinveyInit',  // <-- controller dependencies
+        '$state', '$scope', 'KinveyService', 'kinveyInit',  // <-- controller dependencies
         function ($state, $scope, KinveyService, kinveyInit) {
 
             // ng-model holding values from view/html
@@ -70,9 +70,9 @@ angular.module('appControllers', [])
             $scope.response = UserObject;
 
 
-            KinveyService.getDevicesData().then(function(_data){
+            KinveyService.getDevicesData().then(function (_data) {
                 $scope.items = _data;
-            }, function(_error){
+            }, function (_error) {
                 alert("Error Getting Data " + _error.debug)
             });
 
@@ -80,9 +80,40 @@ angular.module('appControllers', [])
             /**
              *
              */
-            $scope.doLogout = function() {
-                KinveyService.logout().finally(function(){
+            $scope.doLogout = function () {
+                KinveyService.logout().finally(function () {
                     $state.go('app.login');
+                });
+            }
+        }])
+/**
+ *
+ * =================================================================================
+ *
+ * Old controller for the application using $http directly in the controller
+ * and no service. This can work, but is not a good pattern for an application
+ *
+ * =================================================================================
+ */
+    .controller('SignUpController', [
+        '$state', '$scope', 'KinveyService',   // <-- controller dependencies
+        function ($state, $scope, KinveyService) {
+
+            $scope.creds = {};
+
+            /**
+             *
+             */
+            $scope.signUpUser = function () {
+                KinveyService.createUser($scope.creds).then(function (_data) {
+                    $scope.user = _data;
+
+                    alert("Success Creating User Account ");
+
+                    $state.go('app.list',{});
+
+                }, function (_error) {
+                    alert("Error Creating User Account " + _error.debug)
                 });
             }
         }]);

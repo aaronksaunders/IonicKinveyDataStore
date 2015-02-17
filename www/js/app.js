@@ -20,7 +20,7 @@ angular.module('app', ['ionic', , 'appServices', 'appControllers'])
         // this code handles any error when trying to change state.
         $rootScope.$on('$stateChangeError',
             function (event, toState, toParams, fromState, fromParams, error) {
-                console.log('$stateChangeError ' + error.error);
+                console.log('$stateChangeError ' + error && error.debug);
 
                 // if the error is "noUser" the go to login state
                 if (error && error.error === "noUser") {
@@ -69,6 +69,12 @@ angular.module('app', ['ionic', , 'appServices', 'appControllers'])
                         return KinveyService.currentUser(kinveyInit);
                     }
                 }
+            })
+            // create account state
+            .state('app.signup', {
+                url: "/signup",
+                templateUrl: "views/signup.html",
+                controller: "SignUpController"
             })
             // login state that is needed to log the user in after logout
             // or if there is no user object available
