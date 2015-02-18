@@ -2,11 +2,22 @@ IonicFramework Example for Querying Data w/Kinvey
 ===========
 ######There is an [AngularJS + Bootstrap Example](https://github.com/aaronksaunders/AngularKinveyDatastore) here, if Ionic is not your thing
 ----
-For this sample to work, you must create an account in Kinvey and update the constants declared in the `app.js` file.
 
-You will also need to create a collection name `Devices` and add `first_col` and `second_col` and columns in the collection.
+###Getting Started
+------------
+For this sample to work, you must [create an account in Kinvey](https://console.kinvey.com) and update the constants declared in the `app.js` file.
 
-And finally you will need to have created a user object so you can log in to your application.
+In the kinvey console, look on the bottom of the page for the link that says "appKeys" to display the required information.
+
+![Kinvey App Key Screen](screenshots/kinvey-app-key-page.png)
+
+You will also need to create a collection name `Devices` and add `first_col` and `second_col` and columns in the collection. See example databrowser screen below from sample Kinvey Collection
+
+![Kinvey Databrowser Screen](screenshots/data-browser-kinvey.png)
+
+And finally you will need to have created a user object so you can log in to your application. You add the user to the application by clicking on "Users" in the left navigation screen and then clicking "Add Users" on the top menu of the new page
+
+![Kinvey New User Screen](screenshots/create-user-kinvey.png)
 
 ```JavaScript
 // app.js edit this code 
@@ -18,7 +29,7 @@ app.constant("KINVEY", {
 });
 ```
 
-Format of the JSON Data for the `Devices` collection in Kinvey
+Format of the JSON Data for the `Devices` collection in Kinvey when doing a query.
 
 ```JavaScript
   {
