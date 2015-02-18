@@ -1,6 +1,7 @@
 IonicFramework Example for Querying Data w/Kinvey
 ===========
-
+######There is an [AngularJS + Bootstrap Example](https://github.com/aaronksaunders/AngularKinveyDatastore) here, if Ionic is not your thing
+----
 For this sample to work, you must create an account in Kinvey and update the constants declared in the `app.js` file.
 
 You will also need to create a collection name `Devices` and add `first_col` and `second_col` and columns in the collection.
