@@ -28,6 +28,36 @@ app.constant("KINVEY", {
     }
 });
 ```
+###Create a User
+------------
+The kinvey library provides a function for creating a user in the Kinvey App. You need to provide the information as a parameter for the function and Kenvey does the rest. The function will return the successfully created user or an error. When the user is created, he is automatically logged into the system.
+
+We have modularized this functionality into a Service called `KinveyService`, see the actual code in the file [`services.js`](www/js/services.js)
+
+[See the Kinvey Documentation on Creating Users](http://devcenter.kinvey.com/angular/guides/users#signup)
+
+###Logging in a User
+------------
+Kinvey allows you to log a user into the system using the Kinvey Library. The login process must happen after the `Kinvey.init()` has completed successfully. If Kinvey already has an [Active User](http://devcenter.kinvey.com/angular/guides/users#ActiveUser), that user object will be returned from the `Kinvey.init()` call.
+
+In the KinveyService, there is no need to keep track of the ActiveUser since Kinvey does that for us, all we do is return the ActiveUser on initialization or we return null. If there is no ActiveUser, the application will then force the current user to a login page where they can login or select the option to create an account
+
+We have modularized this functionality into a Service called `KinveyService`, see the actual code in the file [`services.js`](www/js/services.js)
+
+* [See the Kinvey Documentation on Logging in Users](http://devcenter.kinvey.com/angular/guides/users#login)
+* [See the Kinvey Documentation on Active Users](http://devcenter.kinvey.com/angular/guides/users#ActiveUser)
+
+###How Routes are Secured
+------------
+
+
+###Querying Data
+------------
+
+
+We will be accessing the Kinvey data using the kinvey angularJS library that means there is no need to work directly with [ngResource](https://docs.angularjs.org/api/ngResource) or [$http](https://docs.angularjs.org/api/ng/service/$http); Kinvey has that covered for you. 
+
+Checkout the [Getting Started](http://devcenter.kinvey.com/angular/guides/getting-started) information for more details
 
 Format of the JSON Data for the `Devices` collection in Kinvey when doing a query.
 
